@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var label: UILabel!
     
     var number: Int = 0 // загаданное число
-    var round: Int = 0 // раунд
+    var round: Int = 1  // раунд
     var points: Int = 0 // сумма очков за раунд
 
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         round += 1
         number = Int.random(in: 1...50)
         
-        if round == 5 {
+        if round == 6 {
             let alert = UIAlertController(title: "Игра окончена",
                                           message: "Вы заработали \(points) очков",
                                           preferredStyle: .alert)
