@@ -18,26 +18,30 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("viewDidLoad")
+        
+        // генерируем случайное число
+        number = Int.random(in: 1...50)
+        
+        // устанавливаем загаданное число в метку
+        label.text = String(self.number)
     }
 
     @IBAction func checkNumber() {
-        if round != 0 {
-            let chooseNumber = Int(slider.value)
-            
-            if number == chooseNumber {
-                points += 50
-            } else if number > chooseNumber {
-                points += 50 - number + chooseNumber
-            } else {
-                points += 50 - chooseNumber + number
-            }
+        let chooseNumber = Int(slider.value)
+        
+        if number == chooseNumber {
+            points += 50
+        } else if number > chooseNumber {
+            points += 50 - number + chooseNumber
+        } else {
+            points += 50 - chooseNumber + number
         }
         
         round += 1
         number = Int.random(in: 1...50)
         
-        if round == 6 {
+        if round == 5 {
             let alert = UIAlertController(title: "Игра окончена",
                                           message: "Вы заработали \(points) очков",
                                           preferredStyle: .alert)
@@ -53,8 +57,6 @@ class ViewController: UIViewController {
         }
         
         label.text = String(number)
-        print(round)
-        
     }
 }
 
