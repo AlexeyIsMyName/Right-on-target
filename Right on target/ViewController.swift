@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     var round: Int = 1  // раунд
     var points: Int = 0 // сумма очков за раунд
 
+    override func loadView() {
+        super.loadView()
+        print("loadView")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
@@ -26,7 +31,27 @@ class ViewController: UIViewController {
         // устанавливаем загаданное число в метку
         label.text = String(self.number)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+    }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDisappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("viewDidDisappear")
+    }
+    
     @IBAction func checkNumber() {
         let chooseNumber = Int(slider.value)
         
@@ -58,5 +83,6 @@ class ViewController: UIViewController {
         
         label.text = String(number)
     }
+    
 }
 
