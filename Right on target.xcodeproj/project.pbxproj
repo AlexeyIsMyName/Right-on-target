@@ -13,6 +13,7 @@
 		E797853A28D64F610019DBE1 /* GameFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797853928D64F610019DBE1 /* GameFactory.swift */; };
 		E797853C28D64FBF0019DBE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797853B28D64FBF0019DBE1 /* MainViewController.swift */; };
 		E797853E28D650060019DBE1 /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797853D28D650060019DBE1 /* NumberViewController.swift */; };
+		E797854028D651070019DBE1 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E797853F28D651070019DBE1 /* ColorViewController.swift */; };
 		E7A7764D28C686F50027D2C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A7764C28C686F50027D2C3 /* AppDelegate.swift */; };
 		E7A7764F28C686F50027D2C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A7764E28C686F50027D2C3 /* SceneDelegate.swift */; };
 		E7A7765428C686F50027D2C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A7765228C686F50027D2C3 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		E797853928D64F610019DBE1 /* GameFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFactory.swift; sourceTree = "<group>"; };
 		E797853B28D64FBF0019DBE1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E797853D28D650060019DBE1 /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
+		E797853F28D651070019DBE1 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		E7A7764928C686F50027D2C3 /* Right on target.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Right on target.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A7764C28C686F50027D2C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7A7764E28C686F50027D2C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				E7A7764E28C686F50027D2C3 /* SceneDelegate.swift */,
 				E797853B28D64FBF0019DBE1 /* MainViewController.swift */,
 				E797853D28D650060019DBE1 /* NumberViewController.swift */,
+				E797853F28D651070019DBE1 /* ColorViewController.swift */,
 				E7A7765228C686F50027D2C3 /* Main.storyboard */,
 				E7A7765528C686F70027D2C3 /* Assets.xcassets */,
 				E7A7765728C686F70027D2C3 /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 				E797853C28D64FBF0019DBE1 /* MainViewController.swift in Sources */,
 				E797853A28D64F610019DBE1 /* GameFactory.swift in Sources */,
 				E797853828D64F3E0019DBE1 /* SecretValue.swift in Sources */,
+				E797854028D651070019DBE1 /* ColorViewController.swift in Sources */,
 				E797853E28D650060019DBE1 /* NumberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
