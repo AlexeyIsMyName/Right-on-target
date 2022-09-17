@@ -1,117 +1,61 @@
 //
-//  Game.swift
-//  Right on target
-//
-//  Created by ALEKSEY SUSLOV on 17.09.2022.
+// Сущность "Игра"
 //
 
-import Foundation
-
+/// Протокол, определяющий требования к классу Game
 protocol GameProtocol {
+    associatedtype SecretType
     // Количество заработанных очков
     var score: Int { get }
-    // текущий раунд
-    var currentRound: GameRoundProtocol! { get }
+    // Секретное число
+    var secretValue: SecretType { get }
     // Проверяет, окончена ли игра
     var isGameEnded: Bool { get }
-    // Генератор случайного значения
-    var secretValueGenerator: GeneratorProtocol { get }
     // Начинает новую игру и сразу стартует первый раунд
     func restartGame()
     // Начинает новый раунд
     func startNewRound()
+    // сравнение значения пользователя с загаданным и подсчет очков
+    func calculateScore(secretValue: SecretType, userValue: SecretType)
 }
 
-class Game: GameProtocol {
-    var score: Int {
-        var totalScore: Int = 0
-        for round in self.rounds {
-            totalScore += round.score
-        }
-        return totalScore
-    }
-    
-    var currentRound: GameRoundProtocol!
-    private var rounds: [GameRoundProtocol] = []
-    var secretValueGenerator: GeneratorProtocol
+class Game<T: SecretValueProtocol>: GameProtocol {
+    typealias SecretType = T
+    var score: Int = 0
+    // секретное значение
+    var secretValue: T
+    // замыкание производит сравнение значений и возвращает заработанные очки
+    private var compareClosure: (T, T) -> Int
     private var roundsCount: Int!
+    private var currentRoundNumber: Int = 0
     var isGameEnded: Bool {
-        if roundsCount == rounds.count {
+        if currentRoundNumber == roundsCount {
             return true
         } else {
             return false
         }
     }
 
-    init(valueGenerator: GeneratorProtocol, rounds: Int) {
-        secretValueGenerator = valueGenerator
+    init(secretValue: T, rounds: Int, compareClosure: @escaping (T, T) -> Int) {
+        self.secretValue = secretValue
         roundsCount = rounds
+        self.compareClosure = compareClosure
         startNewRound()
     }
     
     func restartGame() {
-        rounds = []
+        score = 0
+        currentRoundNumber = 0
         startNewRound()
     }
 
     func startNewRound() {
-        let newSecretValue = self.getNewSecretValue()
-        currentRound = GameRound(secretValue: newSecretValue)
-        rounds.append( currentRound )
-    }
-
-    // Загадать и вернуть новое случайное значение
-    private func getNewSecretValue() -> Int {
-        return secretValueGenerator.getRandomValue()
-    }
-}
-
-
-protocol GameRoundProtocol {
-    // количество заработанных за раунд очков
-    var score: Int { get }
-    // загаданное значение
-    var currentSecretValue: Int { get }
-    // подсчет заработанных за раунд очков
-    func calculateScore(with value: Int)
-}
-
-class GameRound: GameRoundProtocol {
-    var score: Int = 0
-    var currentSecretValue: Int = 0
-    init(secretValue: Int) {
-        currentSecretValue = secretValue
-    }
-    // подсчитывает количество очков
-    func calculateScore(with value: Int) {
-        if value > currentSecretValue {
-            score = 50 - value + currentSecretValue
-        } else if value < currentSecretValue {
-            score = 50 - currentSecretValue + value
-        } else {
-            score = 50
-        }
-    }
-}
-
-
-protocol GeneratorProtocol {
-    func getRandomValue() -> Int
-}
-
-class NumberGenerator: GeneratorProtocol {
-    private let startRangeValue: Int
-    private let endRangeValue: Int
-    
-    init?(startValue: Int, endValue: Int) {
-        guard startValue <= endValue else {
-            return nil
-        }
-        startRangeValue = startValue
-        endRangeValue = endValue
+        currentRoundNumber += 1
+        self.secretValue.setRandomValue()
     }
     
-    func getRandomValue() -> Int {
-        (startRangeValue...endRangeValue).randomElement()!
+    func calculateScore(secretValue: T, userValue: T) {
+        score = score + compareClosure(secretValue, userValue)
     }
+    
 }
