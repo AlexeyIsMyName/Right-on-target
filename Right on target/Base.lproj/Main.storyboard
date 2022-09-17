@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="fC8-f3-3fx">
             <objects>
-                <viewController id="jxc-rV-fhV" sceneMemberID="viewController">
+                <viewController id="jxc-rV-fhV" customClass="MainViewController" customModule="Right_on_target" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6LF-3f-RIA">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="-90.404797601199405" y="93.599999999999994"/>
         </scene>
-        <!--View Controller-->
+        <!--Number View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Right_on_target" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NumberViewController" customModule="Right_on_target" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
                                     <color key="titleColor" systemColor="systemIndigoColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="checkNumber" destination="BYZ-38-t0r" eventType="touchUpInside" id="cSa-ZU-8pV"/>
+                                    <action selector="checkNumber" destination="BYZ-38-t0r" eventType="touchUpInside" id="X8n-6k-KBN"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUb-ez-bD3">
@@ -101,6 +101,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Назад"/>
                                 <connections>
                                     <action selector="backButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="vuv-Ek-q8v"/>
+                                    <segue destination="dUS-jL-3Md" kind="unwind" unwindAction="previousScreenWithUnwindSegue:" id="yeU-Yy-088"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -122,10 +123,12 @@
                     <navigationItem key="navigationItem" id="mIE-eF-7xW"/>
                     <connections>
                         <outlet property="label" destination="hUb-ez-bD3" id="wxa-ap-wSp"/>
+                        <outlet property="secretValueLabel" destination="hUb-ez-bD3" id="PC9-5W-iw5"/>
                         <outlet property="slider" destination="CEa-vT-1GZ" id="5Dh-Do-cnt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="dUS-jL-3Md" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="685" y="-367"/>
         </scene>
