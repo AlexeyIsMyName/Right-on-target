@@ -32,7 +32,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Числа"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="ejd-Tz-eTF"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="5Z4-3Q-11o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lJL-yQ-t7F">
@@ -40,7 +40,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Цвета"/>
                                 <connections>
-                                    <segue destination="syK-Gc-ncg" kind="show" id="WEP-cr-q0M"/>
+                                    <segue destination="syK-Gc-ncg" kind="show" id="w6o-b7-4NG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -100,7 +100,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Назад"/>
                                 <connections>
-                                    <action selector="backButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="vuv-Ek-q8v"/>
                                     <segue destination="dUS-jL-3Md" kind="unwind" unwindAction="previousScreenWithUnwindSegue:" id="yeU-Yy-088"/>
                                 </connections>
                             </button>
@@ -122,7 +121,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="mIE-eF-7xW"/>
                     <connections>
-                        <outlet property="label" destination="hUb-ez-bD3" id="wxa-ap-wSp"/>
                         <outlet property="secretValueLabel" destination="hUb-ez-bD3" id="PC9-5W-iw5"/>
                         <outlet property="slider" destination="CEa-vT-1GZ" id="5Dh-Do-cnt"/>
                     </connections>
@@ -132,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="685" y="-367"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Color View Controller-->
         <scene sceneID="gbR-Nh-sBq">
             <objects>
-                <viewController id="syK-Gc-ncg" customClass="SecondViewController" customModule="Right_on_target" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="syK-Gc-ncg" customClass="ColorViewController" customModule="Right_on_target" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="moX-TV-bCw">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,7 +143,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Назад"/>
                                 <connections>
-                                    <action selector="backButtonPressed" destination="syK-Gc-ncg" eventType="touchUpInside" id="gYi-5Q-c3d"/>
+                                    <segue destination="cH7-G4-YUd" kind="unwind" unwindAction="previousScreenWithUnwindSegue:" id="Eay-9N-wfW"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mw-mW-KcU">
@@ -155,21 +153,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="106" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Вариант 1"/>
+                                        <connections>
+                                            <action selector="compareValue:" destination="syK-Gc-ncg" eventType="touchUpInside" id="pfl-cv-8aQ"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW2-xC-TJf">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW2-xC-TJf">
                                         <rect key="frame" x="106" y="0.0" width="106" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Вариант 2"/>
+                                        <connections>
+                                            <action selector="compareValue:" destination="syK-Gc-ncg" eventType="touchUpInside" id="CFm-U8-Bgr"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cka-3i-jl5">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cka-3i-jl5">
                                         <rect key="frame" x="212" y="0.0" width="106" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Вариант 3"/>
+                                        <connections>
+                                            <action selector="compareValue:" destination="syK-Gc-ncg" eventType="touchUpInside" id="Phs-a0-84I"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQz-TS-00F">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQz-TS-00F">
                                         <rect key="frame" x="318" y="0.0" width="106" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Вариант 4"/>
+                                        <connections>
+                                            <action selector="compareValue:" destination="syK-Gc-ncg" eventType="touchUpInside" id="edo-Tp-bT6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -193,8 +203,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ess-Yq-Ofr"/>
+                    <connections>
+                        <outlet property="buttonColor1" destination="gRh-iA-93l" id="Clx-3a-uMj"/>
+                        <outlet property="buttonColor2" destination="lW2-xC-TJf" id="8jh-r3-kG8"/>
+                        <outlet property="buttonColor3" destination="cka-3i-jl5" id="Eek-v7-c1P"/>
+                        <outlet property="buttonColor4" destination="oQz-TS-00F" id="8nc-jz-MID"/>
+                        <outlet property="hexLabel" destination="4hx-bv-2va" id="kkW-j2-VwQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pP4-xh-Ok9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cH7-G4-YUd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="684" y="502"/>
         </scene>

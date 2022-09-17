@@ -44,7 +44,7 @@ class ColorViewController: UIViewController {
     // MARK: - Взаимодействие View - Model
     
     // Проверка выбранного пользователем цвета
-    @IBAction func compareValue(sender: UIButton) {
+    @IBAction func compareValue(_ sender: UIButton) {
         var userValue = game.secretValue
         userValue.value = Color(from: sender.backgroundColor!)
         game.calculateScore(secretValue: game.secretValue, userValue: userValue)
@@ -61,8 +61,8 @@ class ColorViewController: UIViewController {
         updateScene()
     }
     
-    // MARK: - Обновление View
     
+    // MARK: - Обновление View
     // Обновление текста загаданного цвета
     private func updateSecretColorLabel(withText newHEXColorText: String ) {
         hexLabel.text = "#\(newHEXColorText)"
