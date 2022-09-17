@@ -44,6 +44,10 @@ class ViewController: UIViewController {
         updateLabelWithSecretNumber(newText: String(game.currentRound.currentSecretValue))
     }
     
+    @IBAction func backButtonPressed() {
+        dismiss(animated: true)
+    }
+    
     // Обновление текста загаданного числа
     func updateLabelWithSecretNumber(newText: String ) {
         label.text = newText
